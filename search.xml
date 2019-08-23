@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[about]]></title>
-    <url>%2F2019%2F08%2F23%2Fabout%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F08%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[解决iOS中双击页面上移切 fixed 元素异常的问题]]></title>
+    <url>%2F2018%2F02%2F28%2F%E8%A7%A3%E5%86%B3iOS%E4%B8%AD%E5%8F%8C%E5%87%BB%E9%A1%B5%E9%9D%A2%E4%B8%8A%E7%A7%BB%E5%88%87-fixed-%E5%85%83%E7%B4%A0%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819(() =&gt; &#123; let UA = window.navigator.userAgent; if(UA.toLowerCase().indexOf("ios") &lt; 0) &#123; return; &#125; let lastTouch; window.addEventListener("touchend", (e) =&gt; &#123; const now = Date.now(); if(lastTouch &amp;&amp; (now - lastTouch) &lt; 500) &#123; e.preventDefault(); &#125; lastTouch = now; &#125;, false);&#125;)();]]></content>
   </entry>
 </search>
