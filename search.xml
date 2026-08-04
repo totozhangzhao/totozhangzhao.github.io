@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[在静态站点中手动新增一篇文章]]></title>
+    <url>%2F2026%2F08%2F04%2F%E5%9C%A8%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9%E4%B8%AD%E6%89%8B%E5%8A%A8%E6%96%B0%E5%A2%9E%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%2F</url>
+    <content type="text"><![CDATA[本站是 Hexo + NexT 生成后推到 GitHub Pages 的静态产物。若本地已经找不到源工程，也可以按下面步骤继续发文。 需要改哪些文件 1. 新增文章 HTML：按日期路径放置 2. 更新首页 index.html 3. 更新归档页 archives 4. 更新本地搜索索引 search.xml 5. 更新导航角标与侧栏日志数量 发布 提交并推送到 GitHub 后，Pages 会自动部署。合并到 master 即可在线上看到新页面。长期维护仍建议找回 Hexo 源仓库；手动改静态页适合临时补一篇，不适合频繁写作。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[解决iOS中双击页面上移切 fixed 元素异常的问题]]></title>
     <url>%2F2018%2F02%2F28%2F%E8%A7%A3%E5%86%B3iOS%E4%B8%AD%E5%8F%8C%E5%87%BB%E9%A1%B5%E9%9D%A2%E4%B8%8A%E7%A7%BB%E5%88%87-fixed-%E5%85%83%E7%B4%A0%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819(() =&gt; &#123; let UA = window.navigator.userAgent; if(UA.toLowerCase().indexOf("ios") &lt; 0) &#123; return; &#125; let lastTouch; window.addEventListener("touchend", (e) =&gt; &#123; const now = Date.now(); if(lastTouch &amp;&amp; (now - lastTouch) &lt; 500) &#123; e.preventDefault(); &#125; lastTouch = now; &#125;, false);&#125;)();]]></content>
