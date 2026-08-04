@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[几年后再看Hexo：从3.x到8.x]]></title>
+    <url>%2F2026%2F08%2F04%2F%E5%87%A0%E5%B9%B4%E5%90%8E%E5%86%8D%E7%9C%8BHexo%EF%BC%9A%E4%BB%8E3.x%E5%88%B08.x%2F</url>
+    <content type="text"><![CDATA[本站页脚还写着 Hexo 3.9.0 + NexT.Pisces 7.3.0。若你上次认真用 Hexo 也是那一代，下面这份速览够用来接上进度。 一句话结论 Hexo 仍然是 Markdown 写博客 → Node.js 生成静态站 → 一键部署 GitHub Pages。 最新稳定版是 8.1.2。版本时间线 3.x 到 8.x：性能、Injector、Prism、标签外置、Node 20.19+。 什么几乎没变 hexo init/new/s/g/d。主题与生态 NexT 8.x 要求 Hexo ≥ 7。 和本站的关系 短期可手写静态页；长期建议重建源工程。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[在静态站点中手动新增一篇文章]]></title>
     <url>%2F2026%2F08%2F04%2F%E5%9C%A8%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9%E4%B8%AD%E6%89%8B%E5%8A%A8%E6%96%B0%E5%A2%9E%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%2F</url>
     <content type="text"><![CDATA[本站是 Hexo + NexT 生成后推到 GitHub Pages 的静态产物。若本地已经找不到源工程，也可以按下面步骤继续发文。 需要改哪些文件 1. 新增文章 HTML：按日期路径放置 2. 更新首页 index.html 3. 更新归档页 archives 4. 更新本地搜索索引 search.xml 5. 更新导航角标与侧栏日志数量 发布 提交并推送到 GitHub 后，Pages 会自动部署。合并到 master 即可在线上看到新页面。长期维护仍建议找回 Hexo 源仓库；手动改静态页适合临时补一篇，不适合频繁写作。]]></content>

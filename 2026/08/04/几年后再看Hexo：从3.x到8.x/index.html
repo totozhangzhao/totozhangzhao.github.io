@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="若你上次接触 Hexo 还停留在 3.x，这里按时间线梳理到 8.1：工作流没变，版本门槛、插件边界和主题生态已经换代。">
+<meta name="keywords" content="Javascript,nodejs,vue,react,Hexo,静态站点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几年后再看Hexo：从3.x到8.x">
+<meta property="og:url" content="http://totozhangzhao.github.io/2026/08/04/几年后再看Hexo：从3.x到8.x/index.html">
+<meta property="og:site_name" content="图南">
+<meta property="og:description" content="若你上次接触 Hexo 还停留在 3.x，这里按时间线梳理到 8.1：工作流没变，版本门槛、插件边界和主题生态已经换代。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-08-04T10:20:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="几年后再看Hexo：从3.x到8.x">
+<meta name="twitter:description" content="若你上次接触 Hexo 还停留在 3.x，这里按时间线梳理到 8.1：工作流没变，版本门槛、插件边界和主题生态已经换代。">
+  <link rel="canonical" href="http://totozhangzhao.github.io/2026/08/04/几年后再看Hexo：从3.x到8.x/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>几年后再看Hexo：从3.x到8.x | 图南</title>
+  <meta name="generator" content="Hexo 3.9.0">
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+  <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">图南</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">倚楼听风雨 淡看江湖路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">6</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-wrapper">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://totozhangzhao.github.io/2026/08/04/几年后再看Hexo：从3.x到8.x/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaozhao">
+      <meta itemprop="description" content="前端 Javascriptript">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="图南">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">几年后再看Hexo：从3.x到8.x
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2026-08-04 18:20:00" itemprop="dateCreated datePublished" datetime="2026-08-04T18:20:00+08:00">2026-08-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-08-04 18:20:00" itemprop="dateModified" datetime="2026-08-04T18:20:00+08:00">2026-08-04</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        
+      
+        <p>本站页脚还写着 <code>Hexo 3.9.0</code> + <code>NexT.Pisces 7.3.0</code>。若你上次认真用 Hexo 也是那一代，下面这份速览够用来接上进度。</p>
+<h2 id="一句话结论"><a href="#一句话结论" class="headerlink" title="一句话结论"></a>一句话结论</h2><p>Hexo 仍然是「Markdown 写博客 → Node.js 生成静态站 → 一键部署 GitHub Pages」这条路。最新稳定版是 <strong>8.1.2</strong>（2026 年 5 月），核心配方没变，变的是 Node 门槛、性能、插件边界，以及主题生态。</p>
+<h2 id="版本时间线"><a href="#版本时间线" class="headerlink" title="版本时间线"></a>版本时间线</h2><ul>
+<li><strong>3.x（你可能熟悉的年代）</strong>：Swig/Nunjucks 标签语法、插件生态成型；本站生成器就是这一代。</li>
+<li><strong>4.x</strong>：内置 Swig 渲染器拆出，主题更多依赖独立 renderer；开始更积极跟进 Node LTS。</li>
+<li><strong>5.x（2020）</strong>：性能大跃；内置 Prism；新增 Injector；主题配置与站点配置分离；去掉全局 lodash。</li>
+<li><strong>6.x（2021）</strong>：主题 <code>package.json</code> 也可声明插件；默认更安全地转义部分输出。</li>
+<li><strong>7.x（2023）</strong>：<code>gist</code> / <code>youtube</code> / <code>jsfiddle</code> / <code>vimeo</code> 内置标签迁到 <code>hexo-tag-embed</code>；高亮统一走 <code>syntax_highlighter</code> 配置。</li>
+<li><strong>8.x（2025）</strong>：弃用 Node 16/18，要求 <strong>Node.js ≥ 20.19</strong>；继续做外链处理、归档、标签解析等性能优化。当前最新 <strong>8.1.2</strong>。</li>
+</ul>
+<h2 id="什么几乎没变"><a href="#什么几乎没变" class="headerlink" title="什么几乎没变"></a>什么几乎没变</h2><p><code>hexo init</code> → <code>hexo new</code> → <code>hexo s</code> / <code>hexo g</code> → <code>hexo d</code> 这一套还在。Markdown、front-matter、<code>hexo-deployer-git</code>、主题 + 插件扩展，仍然是主力玩法。</p>
+<h2 id="主题与生态"><a href="#主题与生态" class="headerlink" title="主题与生态"></a>主题与生态</h2><p>NexT 已演进到 <strong>8.x</strong>（例如 8.27.0），并要求 Hexo ≥ 7。本站还停在 NexT 7.3，和 Hexo 3.9 产物是匹配的；若重建源工程，建议直接上 Hexo 8 + 新版 NexT，而不是在 3.x 上硬续。</p>
+<p>静态站点赛道里 Hugo、Astro、Eleventy 更常被拿来比速度或前端集成；Hexo 的优势仍是 Node 栈友好、中文社区资料多、个人博客心智成本低。</p>
+<h2 id="和本站的关系"><a href="#和本站的关系" class="headerlink" title="和本站的关系"></a>和本站的关系</h2><p>仓库里目前只有生成后的静态 HTML。短期可以继续手写页面更新；想长期用上 8.x 的能力，还是要找回（或重建）Hexo 源工程，再 <code>hexo generate</code> 覆盖 <code>public</code>。</p>
+
+
+    
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+                    <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2026/08/04/在静态站点中手动新增一篇文章/" rel="next" title="在静态站点中手动新增一篇文章">
+                  <i class="fa fa-chevron-left"></i> 在静态站点中手动新增一篇文章
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一句话结论"><span class="nav-number">1.</span> <span class="nav-text">一句话结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本时间线"><span class="nav-number">2.</span> <span class="nav-text">版本时间线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么几乎没变"><span class="nav-number">3.</span> <span class="nav-text">什么几乎没变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题与生态"><span class="nav-number">4.</span> <span class="nav-text">主题与生态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和本站的关系"><span class="nav-number">5.</span> <span class="nav-text">和本站的关系</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhaozhao</p>
+  <div class="site-description motion-element" itemprop="description">前端 Javascriptript</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:totozhangzhao@163.com" title="E-Mail &rarr; mailto:totozhangzhao@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2026</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaozhao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+
+  
+  <script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>
